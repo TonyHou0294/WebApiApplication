@@ -526,6 +526,46 @@
             <param name="id">ECPay會員ID</param>
             <returns>埦行結果</returns>
         </member>
+        <member name="T:WebApiApplication.Controllers.UserController">
+            <summary>
+            使用者資料操作(REST)
+            </summary>
+        </member>
+        <member name="M:WebApiApplication.Controllers.UserController.Get">
+            <summary>
+            瀏覽全部使用者資料
+            </summary>
+            <returns>使用者清單</returns>
+        </member>
+        <member name="M:WebApiApplication.Controllers.UserController.Get(System.Int64)">
+            <summary>
+            瀏覽特定使用者資料
+            </summary>
+            <param name="id">使用者ID</param>
+            <returns>使用者資料</returns>
+        </member>
+        <member name="M:WebApiApplication.Controllers.UserController.Post(WebApiApplication.ViewModels.UserRequestData)">
+            <summary>
+            新增一筆使用者資料
+            </summary>
+            <param name="data">使用者請求資料</param>
+            <returns>埦行結果</returns>
+        </member>
+        <member name="M:WebApiApplication.Controllers.UserController.Put(System.Int64,WebApiApplication.ViewModels.UserRequestData)">
+            <summary>
+            修改特定使用者資料
+            </summary>
+            <param name="id">使用者ID</param>
+            <param name="data">使用者請求資料</param>
+            <returns>埦行結果</returns>
+        </member>
+        <member name="M:WebApiApplication.Controllers.UserController.Delete(System.Int64)">
+            <summary>
+            刪除指定使用者資料
+            </summary>
+            <param name="id">使用者ID</param>
+            <returns>埦行結果</returns>
+        </member>
         <member name="T:WebApiApplication.Models.ECPay">
             <summary>
             ECPay會員資料
@@ -549,6 +589,61 @@
         <member name="P:WebApiApplication.Models.ECPay.HashIV">
             <summary>
             初始化向量
+            </summary>
+        </member>
+        <member name="T:WebApiApplication.Models.User">
+            <summary>
+            使用者資料
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.Models.User.ID">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.Models.User.UserId">
+            <summary>
+            使用者編號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.Models.User.UserName">
+            <summary>
+            使用者名稱
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.Models.User.Password">
+            <summary>
+            密碼
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.Models.User.ApiKey">
+            <summary>
+            API金鑰
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.Models.User.RefreshToken">
+            <summary>
+            刷新令牌
+            </summary>
+        </member>
+        <member name="T:WebApiApplication.ViewModels.UserRequestData">
+            <summary>
+            使用者請求資料
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.UserRequestData.UserId">
+            <summary>
+            使用者編號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.UserRequestData.UserName">
+            <summary>
+            使用者名稱
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.UserRequestData.Password">
+            <summary>
+            密碼
             </summary>
         </member>
     </members>

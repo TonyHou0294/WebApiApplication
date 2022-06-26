@@ -13,7 +13,7 @@ namespace WebApiApplication.Controllers
         #region 共用參數
         protected WebApiDBContext db = new WebApiDBContext();
         protected int timestamp = (int)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)).TotalSeconds;
-        protected string host, path, url, JsonString, responseResult;
+        protected string host, path, url, jsonString, responseResult;
         protected HttpRequestMessage requestMessage;
         protected HttpResponseMessage responseMessage;
         #endregion

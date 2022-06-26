@@ -1,8 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
@@ -57,6 +53,12 @@ namespace WebApiApplication.Controllers
                 return BadRequest(ModelState);
             }
 
+            var eCPayData = db.ECPays.Where(x => x.MerchantID == eCPay.MerchantID).FirstOrDefault();
+            if(eCPayData!=null)
+            {
+                return BadRequest("會員編號已存在");
+            }
+
             db.ECPays.Add(eCPay);
             db.SaveChanges();
 
@@ -80,6 +82,12 @@ namespace WebApiApplication.Controllers
             if (id != eCPay.ID)
             {
                 return BadRequest();
+            }
+
+            var eCPayData = db.ECPays.Where(x =>x.ID != eCPay.ID && x.MerchantID == eCPay.MerchantID).FirstOrDefault();
+            if (eCPayData != null)
+            {
+                return BadRequest("會員編號已存在");
             }
 
             db.Entry(eCPay).State = EntityState.Modified;

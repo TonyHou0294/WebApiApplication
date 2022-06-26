@@ -1,7 +1,4 @@
-﻿using System;
-using System.Data.Entity;
-using System.Data.Entity.Migrations;
-using System.Linq;
+﻿using System.Data.Entity.Migrations;
 using WebApiApplication.Models;
 
 namespace WebApiApplication.Migrations
@@ -10,7 +7,11 @@ namespace WebApiApplication.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            //自動遷移是否啟用
+            AutomaticMigrationsEnabled = true;
+
+            //自動遷移是否允許數據丟失
+            AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(WebApiDBContext context)
