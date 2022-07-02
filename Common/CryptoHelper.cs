@@ -50,16 +50,21 @@ namespace Common
         /// <param name="iv">初始化向量</param>
         /// <param name="mode">作業模式</param>
         /// <param name="padding">填補模式</param>
-        /// <param name="size">長度</param>
         /// <param name="output">輸出(0:Base64/1:hex)</param>
+        /// <param name="size">長度</param>
         /// <returns>密文</returns>
-        public static string AESEncode(string clearText, string key, string iv, CipherMode mode, PaddingMode padding, int size, int output)
+        public static string AESEncode(string clearText, string key, string iv, CipherMode mode, PaddingMode padding, int output, int? size)
         {
             RijndaelManaged rijndaelCipher = new RijndaelManaged();
             rijndaelCipher.Mode = mode;
             rijndaelCipher.Padding = padding;
-            rijndaelCipher.KeySize = size;
-            rijndaelCipher.BlockSize = size;
+
+            if(size.HasValue)
+            {
+                rijndaelCipher.KeySize = size.Value;
+                rijndaelCipher.BlockSize = size.Value;
+            }
+
             byte[] keyBytes = Encoding.UTF8.GetBytes(key);
             rijndaelCipher.Key = keyBytes;
             if (!string.IsNullOrWhiteSpace(iv))
@@ -96,16 +101,20 @@ namespace Common
         /// <param name="iv">初始化向量</param>
         /// <param name="mode">作業模式</param>
         /// <param name="padding">填補模式</param>
-        /// <param name="size">長度</param>
         /// <param name="output">輸出(0:Base64/1:hex)</param>
+        /// <param name="size">長度</param>
         /// <returns>明文</returns>
-        public static string AESDecode(string text, string key, string iv, CipherMode mode, PaddingMode padding, int size, int output)
+        public static string AESDecode(string text, string key, string iv, CipherMode mode, PaddingMode padding, int output, int? size)
         {
             RijndaelManaged rijndaelCipher = new RijndaelManaged();
             rijndaelCipher.Mode = mode;
             rijndaelCipher.Padding = padding;
-            rijndaelCipher.KeySize = size;
-            rijndaelCipher.BlockSize = size;
+
+            if(size.HasValue)
+            {
+                rijndaelCipher.KeySize = size.Value;
+                rijndaelCipher.BlockSize = size.Value;
+            }
 
             byte[] encryptedData;
             switch (output)

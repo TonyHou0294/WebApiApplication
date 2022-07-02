@@ -1,6 +1,5 @@
 ﻿using Common;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
@@ -10,12 +9,14 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using WebApiApplication.Models;
 using WebApiApplication.ViewModels;
+using static WebApiApplication.Helpers.AuthorizationHelper.BasicAuthManager;
 
 namespace WebApiApplication.Controllers
 {
     /// <summary>
-    /// 使用者資料操作(REST)
+    /// 使用者資料操作(REST + Basic Auth)
     /// </summary>
+    [BasicAuthAuthorizationFilterAttribute]
     public class UserController : BaseApiController
     {
         /// <summary>

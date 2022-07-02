@@ -27,4 +27,44 @@ namespace WebApiApplication.ViewModels
         [StringLength(50)]
         public string Password { get; set; }
     }
+
+    /// <summary>
+    /// 登入請求資料
+    /// </summary>
+    public class SignInRequestData
+    {
+        /// <summary>
+        /// 使用者編號
+        /// </summary>
+        [Required]
+        [StringLength(50)]
+        public string UserId { get; set; }
+
+        /// <summary>
+        /// 密碼
+        /// </summary>
+        [Required]
+        [StringLength(50)]
+        public string Password { get; set; }
+    }
+
+    /// <summary>
+    /// 刷新請求資料
+    /// </summary>
+    public class RefreshRequestData
+    {
+        /// <summary>
+        /// 使用者編號
+        /// </summary>
+        [Required]
+        [StringLength(50)]
+        public string UserId { get; set; }
+
+        /// <summary>
+        /// 刷新令牌
+        /// </summary>
+        [Required]
+        [StringLength(50)]
+        public string RefreshToken { get; set; }
+    }
 }

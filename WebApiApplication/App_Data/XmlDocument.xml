@@ -488,7 +488,7 @@
         </member>
         <member name="T:WebApiApplication.Controllers.ECPayController">
             <summary>
-            ECPay會員資料操作(REST)
+            ECPay會員資料操作(REST + Bearer Token)
             </summary>
         </member>
         <member name="M:WebApiApplication.Controllers.ECPayController.Get">
@@ -526,9 +526,28 @@
             <param name="id">ECPay會員ID</param>
             <returns>埦行結果</returns>
         </member>
+        <member name="T:WebApiApplication.Controllers.TokenController">
+            <summary>
+            令牌處理
+            </summary>
+        </member>
+        <member name="M:WebApiApplication.Controllers.TokenController.SignIn(WebApiApplication.ViewModels.SignInRequestData)">
+            <summary>
+            登入
+            </summary>
+            <param name="data">登錄請求資料</param>
+            <returns>令牌資料</returns>
+        </member>
+        <member name="M:WebApiApplication.Controllers.TokenController.Refresh(WebApiApplication.ViewModels.RefreshRequestData)">
+            <summary>
+            刷新
+            </summary>
+            <param name="data">刷新請求資料</param>
+            <returns>令牌資料</returns>
+        </member>
         <member name="T:WebApiApplication.Controllers.UserController">
             <summary>
-            使用者資料操作(REST)
+            使用者資料操作(REST + Basic Auth)
             </summary>
         </member>
         <member name="M:WebApiApplication.Controllers.UserController.Get">
@@ -565,6 +584,91 @@
             </summary>
             <param name="id">使用者ID</param>
             <returns>埦行結果</returns>
+        </member>
+        <member name="T:WebApiApplication.Helpers.AuthorizationHelper">
+            <summary>
+            授權助手
+            </summary>
+        </member>
+        <member name="T:WebApiApplication.Helpers.AuthorizationHelper.BasicAuthManager">
+            <summary>
+            基本身份驗證管理器
+            </summary>
+        </member>
+        <member name="T:WebApiApplication.Helpers.AuthorizationHelper.BasicAuthManager.BasicAuthAuthorizationFilterAttribute">
+            <summary>
+            基本身份驗證授權檢查
+            </summary>
+        </member>
+        <member name="T:WebApiApplication.Helpers.AuthorizationHelper.BearerTokenManager">
+            <summary>
+            承載令牌管理器
+            </summary>
+        </member>
+        <member name="T:WebApiApplication.Helpers.AuthorizationHelper.BearerTokenManager.Header">
+            <summary>
+            標題
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.Helpers.AuthorizationHelper.BearerTokenManager.Header.alg">
+            <summary>
+            主要演算法
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.Helpers.AuthorizationHelper.BearerTokenManager.Header.typ">
+            <summary>
+            媒體類型
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.Helpers.AuthorizationHelper.BearerTokenManager.Header.cty">
+            <summary>
+            內容類型
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.Helpers.AuthorizationHelper.BearerTokenManager.Header.SubHeader.userId">
+            <summary>
+            使用者編號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.Helpers.AuthorizationHelper.BearerTokenManager.Header.SubHeader.iv">
+            <summary>
+            初始化向量
+            </summary>
+        </member>
+        <member name="T:WebApiApplication.Helpers.AuthorizationHelper.BearerTokenManager.Payload">
+            <summary>
+            驗證資訊
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.Helpers.AuthorizationHelper.BearerTokenManager.Payload.userInfo">
+            <summary>
+            使用者資訊
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.Helpers.AuthorizationHelper.BearerTokenManager.Payload.exp">
+            <summary>
+            過期時間
+            </summary>
+        </member>
+        <member name="M:WebApiApplication.Helpers.AuthorizationHelper.BearerTokenManager.CreateToken(WebApiApplication.Models.User)">
+            <summary>
+            創建令牌
+            </summary>
+        </member>
+        <member name="M:WebApiApplication.Helpers.AuthorizationHelper.BearerTokenManager.GetUser">
+            <summary>
+            取得使用者資訊
+            </summary>
+        </member>
+        <member name="T:WebApiApplication.Helpers.AuthorizationHelper.BearerTokenManager.BearerTokenAuthorizationFilterAttribute">
+            <summary>
+            承載令牌授權檢查
+            </summary>
+        </member>
+        <member name="M:WebApiApplication.Helpers.AuthorizationHelper.setErrorResponse(System.Web.Http.Controllers.HttpActionContext,System.String)">
+            <summary>
+            設置錯誤響應
+            </summary>
         </member>
         <member name="T:WebApiApplication.Models.ECPay">
             <summary>
@@ -644,6 +748,51 @@
         <member name="P:WebApiApplication.ViewModels.UserRequestData.Password">
             <summary>
             密碼
+            </summary>
+        </member>
+        <member name="T:WebApiApplication.ViewModels.SignInRequestData">
+            <summary>
+            登入請求資料
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.SignInRequestData.UserId">
+            <summary>
+            使用者編號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.SignInRequestData.Password">
+            <summary>
+            密碼
+            </summary>
+        </member>
+        <member name="T:WebApiApplication.ViewModels.RefreshRequestData">
+            <summary>
+            刷新請求資料
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.RefreshRequestData.UserId">
+            <summary>
+            使用者編號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.RefreshRequestData.RefreshToken">
+            <summary>
+            刷新令牌
+            </summary>
+        </member>
+        <member name="T:WebApiApplication.ViewModels.TokenResponseData">
+            <summary>
+            令牌響應資料
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.TokenResponseData.AccessToken">
+            <summary>
+            訪問令牌
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.TokenResponseData.RefreshToken">
+            <summary>
+            刷新令牌
             </summary>
         </member>
     </members>

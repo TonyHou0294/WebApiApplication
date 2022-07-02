@@ -5,13 +5,15 @@ using System.Net;
 using System.Web.Http;
 using System.Web.Http.Description;
 using WebApiApplication.Models;
+using static WebApiApplication.Helpers.AuthorizationHelper.BearerTokenManager;
 
 namespace WebApiApplication.Controllers
 {
     /// <summary>
-    /// ECPay會員資料操作(REST)
+    /// ECPay會員資料操作(REST + Bearer Token)
     /// </summary>
     [RoutePrefix("api/ECPay")]
+    [BearerTokenAuthorizationFilterAttribute]
     public class ECPayController : BaseApiController
     {
         /// <summary>
