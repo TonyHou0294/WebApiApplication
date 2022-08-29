@@ -486,6 +486,183 @@
             基礎API
             </summary>
         </member>
+        <member name="T:WebApiApplication.Controllers.ECPayApiController">
+            <summary>
+            綠界科技物流服務API
+            </summary>
+        </member>
+        <member name="M:WebApiApplication.Controllers.ECPayApiController._SetECPay(System.String)">
+            <summary>
+            設定ECPay資料
+            </summary>
+            <param name="MerchantID">會員編號</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiApplication.Controllers.ECPayApiController.ECPayApiEncode(System.String,System.String,System.String)">
+            <summary>
+            綠界科技物流服務API加密
+            </summary>
+            <param name="ClearText">明文</param>
+            <param name="HashKey">雜湊金鑰</param>
+            <param name="HashIV">雜湊初始化向量</param>
+            <returns>密文</returns>
+        </member>
+        <member name="M:WebApiApplication.Controllers.ECPayApiController.ECPayApiDecode(System.String,System.String,System.String)">
+            <summary>
+            綠界科技物流服務API解密
+            </summary>
+            <param name="CipherText">密文</param>
+            <param name="HashKey">雜湊金鑰</param>
+            <param name="HashIV">雜湊初始化向量</param>
+            <returns>密文</returns>
+        </member>
+        <member name="M:WebApiApplication.Controllers.ECPayApiController.CreateECPayTempPage(System.String,System.String)">
+            <summary>
+            產生綠界科技暫存頁
+            </summary>
+            <param name="HtmlContent">Html內容</param>
+            <param name="FileName">檔名</param>
+            <returns>物流選擇頁</returns>
+        </member>
+        <member name="M:WebApiApplication.Controllers.ECPayApiController.SetECPayApiRequestData(System.String)">
+            <summary>
+            設定綠界科技物流服務API傳入參數
+            </summary>
+            <param name="CipherText">加密資料</param>
+        </member>
+        <member name="M:WebApiApplication.Controllers.ECPayApiController.SetECPayApiResponseData(System.String)">
+            <summary>
+            設定綠界科技物流服務API回傳參數
+            </summary>
+            <param name="CipherText">加密資料</param>
+        </member>
+        <member name="M:WebApiApplication.Controllers.ECPayApiController.CreateTestData(WebApiApplication.ViewModels.ECPayApiRequestData_CreateTestData)">
+            <summary>
+            一段標測試資料產生(B2C)
+            </summary>
+            <param name="data">一段標測試資料產生(B2C)傳入參數</param>
+            <returns>一段標測試資料</returns>
+        </member>
+        <member name="M:WebApiApplication.Controllers.ECPayApiController.PrintTradeDocument(WebApiApplication.ViewModels.ECPayApiRequestData_PrintTradeDocument)">
+            <summary>
+            列印託運單
+            </summary>
+            <param name="data">列印託運單傳入參數</param>
+            <returns>列印託運單頁</returns>
+        </member>
+        <member name="M:WebApiApplication.Controllers.ECPayApiController.RedirectToLogisticsSelection(WebApiApplication.ViewModels.ECPayApiRequestData_RedirectToLogisticsSelection)">
+            <summary>
+            開啟物流選擇頁
+            </summary>
+            <param name="data">開啟物流選擇頁傳入參數</param>
+            <returns>物流選擇頁或執行錯誤訊息</returns>
+        </member>
+        <member name="M:WebApiApplication.Controllers.ECPayApiController.GetECPayTempTradeResult(WebApiApplication.ViewModels.ECPayApiRequestData_BaseRequestData)">
+            <summary>
+            取得綠界暫存物流訂單結果列表
+            </summary>
+            <param name="data">取得綠界暫存物流訂單結果列表傳入參數</param>
+            <returns>綠界暫存物流訂單結果列表</returns>
+        </member>
+        <member name="M:WebApiApplication.Controllers.ECPayApiController.CreateTempTradeResult(System.String,WebApiApplication.ViewModels.ECPayApiRequestData_CreateTempTradeResult)">
+            <summary>
+            建立暫存物流訂單結果
+            </summary>
+            <param name="MerchantID">特店編號</param>
+            <param name="data">建立暫存物流訂單結果通知傳入參數</param>
+            <returns>暫存物流訂單結果</returns>
+        </member>
+        <member name="M:WebApiApplication.Controllers.ECPayApiController.UpdateTempTrade(WebApiApplication.ViewModels.ECPayApiRequestData_UpdateTempTrade)">
+            <summary>
+            更新暫存物流訂單
+            </summary>
+            <param name="data">更新暫存物流訂單傳入參數</param>
+            <returns>執行結果</returns>
+        </member>
+        <member name="M:WebApiApplication.Controllers.ECPayApiController.CreateByTempTrade(WebApiApplication.ViewModels.ECPayApiRequestData_CreateByTempTrade)">
+            <summary>
+            建立正式物流訂單
+            </summary>
+            <param name="data">建立正式物流訂單傳入參數</param>
+            <returns>正式物流訂單Id</returns>
+        </member>
+        <member name="M:WebApiApplication.Controllers.ECPayApiController.ReturnUniMartCVS(WebApiApplication.ViewModels.ECPayApiRequestData_ReturnB2C)">
+            <summary>
+            (B2C)7-ELEVEN逆物流訂單
+            </summary>
+            <param name="data">(B2C)7-ELEVEN逆物流訂單傳入參數</param>
+            <returns>逆物流訂單資訊</returns>
+        </member>
+        <member name="M:WebApiApplication.Controllers.ECPayApiController.ReturnCVS(WebApiApplication.ViewModels.ECPayApiRequestData_ReturnB2C)">
+            <summary>
+            (B2C)全家逆物流訂單
+            </summary>
+            <param name="data">(B2C)全家逆物流訂單傳入參數</param>
+            <returns>逆物流訂單資訊</returns>
+        </member>
+        <member name="M:WebApiApplication.Controllers.ECPayApiController.ReturnHilifeCVS(WebApiApplication.ViewModels.ECPayApiRequestData_ReturnB2C)">
+            <summary>
+            (B2C)萊爾富逆物流訂單
+            </summary>
+            <param name="data">(B2C)萊爾富逆物流訂單傳入參數</param>
+            <returns>逆物流訂單資訊</returns>
+        </member>
+        <member name="M:WebApiApplication.Controllers.ECPayApiController.ReturnHome(WebApiApplication.ViewModels.ECPayApiRequestData_ReturnHome)">
+            <summary>
+            宅配逆物流
+            </summary>
+            <param name="data">宅配逆物流傳入參數</param>
+            <returns>逆物流訂單資訊</returns>
+        </member>
+        <member name="M:WebApiApplication.Controllers.ECPayApiController.QueryLogisticsTradeInfo(WebApiApplication.ViewModels.ECPayApiRequestData_QueryLogisticsTradeInfo)">
+            <summary>
+            查詢訂單
+            </summary>
+            <param name="data">查詢訂單傳入參數</param>
+            <returns>訂單資訊</returns>
+        </member>
+        <member name="M:WebApiApplication.Controllers.ECPayApiController.GetECPayLogisticsStatus(WebApiApplication.ViewModels.ECPayApiRequestData_BaseRequestData)">
+            <summary>
+            取得綠界物流狀態列表
+            </summary>
+            <param name="data">取得綠界物流狀態列表傳入參數</param>
+            <returns>綠界物流狀態列表</returns>
+        </member>
+        <member name="M:WebApiApplication.Controllers.ECPayApiController.ForwardLogistics(WebApiApplication.ViewModels.ECPayApiRequestData_ServerPost)">
+            <summary>
+            物流狀態(貨態)通知
+            </summary>
+            <param name="data">綠界科技物流服務API傳入參數(ServerPost)</param>
+            <returns>執行結果</returns>
+        </member>
+        <member name="M:WebApiApplication.Controllers.ECPayApiController.ReverseLogistics(WebApiApplication.ViewModels.ECPayApiRequestData_ServerPost)">
+            <summary>
+            物流狀態(逆物流)通知
+            </summary>
+            <param name="data">綠界科技物流服務API傳入參數(ServerPost)</param>
+            <returns>執行結果</returns>
+        </member>
+        <member name="M:WebApiApplication.Controllers.ECPayApiController.UpdateShipmentInfo(WebApiApplication.ViewModels.ECPayApiRequestData_UpdateShipmentInfo)">
+            <summary>
+            (B2C)物流訂單異動
+            </summary>
+            <param name="data">(B2C)物流訂單異動傳入參數</param>
+            <returns>執行結果</returns>
+        </member>
+        <member name="M:WebApiApplication.Controllers.ECPayApiController.UpdateStoreInfo(WebApiApplication.ViewModels.ECPayApiRequestData_UpdateStoreInfo)">
+            <summary>
+            (C2C)物流訂單異動
+            </summary>
+            <param name="data">(C2C)物流訂單異動傳入參數</param>
+            <returns>執行結果</returns>
+        </member>
+        <member name="M:WebApiApplication.Controllers.ECPayApiController.CancelC2COrder(WebApiApplication.ViewModels.ECPayApiRequestData_CancelC2COrder)">
+            <summary>
+            取消訂單(7-EVEVEN超商C2C)
+            </summary>
+            <param name="data">取消訂單(7-EVEVEN超商C2C)傳入參數</param>
+            <returns>執行結果</returns>
+        </member>
         <member name="T:WebApiApplication.Controllers.ECPayController">
             <summary>
             ECPay會員資料操作(REST + Bearer Token)
@@ -695,6 +872,206 @@
             初始化向量
             </summary>
         </member>
+        <member name="P:WebApiApplication.Models.ECPay.IsStage">
+            <summary>
+            是否測試
+            </summary>
+        </member>
+        <member name="T:WebApiApplication.Models.ECPay_LogisticsStatus">
+            <summary>
+            綠界物流狀態
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.Models.ECPay_LogisticsStatus.ID">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.Models.ECPay_LogisticsStatus.MerchantID">
+            <summary>
+            廠商編號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.Models.ECPay_LogisticsStatus.LogisticsType">
+            <summary>
+            物流類型
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.Models.ECPay_LogisticsStatus.LogisticsSubType">
+            <summary>
+            物流子類型
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.Models.ECPay_LogisticsStatus.MerchantTradeNo">
+            <summary>
+            廠商交易編號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.Models.ECPay_LogisticsStatus.RtnMerchantTradeNo">
+            <summary>
+            廠商逆交易編號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.Models.ECPay_LogisticsStatus.LogisticsID">
+            <summary>
+            綠界訂單編號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.Models.ECPay_LogisticsStatus.LogisticsStatus">
+            <summary>
+            貨態代碼
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.Models.ECPay_LogisticsStatus.LogisticsStatusName">
+            <summary>
+            貨態代碼訊息
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.Models.ECPay_LogisticsStatus.GoodsAmount">
+            <summary>
+            商品金額
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.Models.ECPay_LogisticsStatus.UpdateStatusDate">
+            <summary>
+            物流狀態更新時間
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.Models.ECPay_LogisticsStatus.ReceiverName">
+            <summary>
+            收件人姓名
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.Models.ECPay_LogisticsStatus.ReceiverPhone">
+            <summary>
+            收件人電話
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.Models.ECPay_LogisticsStatus.ReceiverCellphone">
+            <summary>
+            收件人手機
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.Models.ECPay_LogisticsStatus.ReceiverEmail">
+            <summary>
+            收件人Email
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.Models.ECPay_LogisticsStatus.ReceiverAddress">
+            <summary>
+            收件人地址
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.Models.ECPay_LogisticsStatus.CVSPaymentNo">
+            <summary>
+            寄貨編號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.Models.ECPay_LogisticsStatus.CVSValidationNo">
+            <summary>
+            驗證碼
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.Models.ECPay_LogisticsStatus.BookingNote">
+            <summary>
+            托運單號
+            </summary>
+        </member>
+        <member name="T:WebApiApplication.Models.ECPay_TempTradeResult">
+            <summary>
+            綠界暫存物流訂單結果
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.Models.ECPay_TempTradeResult.ID">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.Models.ECPay_TempTradeResult.MerchantID">
+            <summary>
+            會員編號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.Models.ECPay_TempTradeResult.TempLogisticsID">
+            <summary>
+            綠界暫存物流訂單編號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.Models.ECPay_TempTradeResult.LogisticsType">
+            <summary>
+            物流類型
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.Models.ECPay_TempTradeResult.LogisticsSubType">
+            <summary>
+            物流子類型
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.Models.ECPay_TempTradeResult.ReceiverName">
+            <summary>
+            收件人姓名
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.Models.ECPay_TempTradeResult.ReceiverPhone">
+            <summary>
+            收件人電話
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.Models.ECPay_TempTradeResult.ReceiverCellphone">
+            <summary>
+            收件人手機
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.Models.ECPay_TempTradeResult.ReceiverAddress">
+            <summary>
+            收件人地址
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.Models.ECPay_TempTradeResult.ReceiverZipCode">
+            <summary>
+            收件人郵遞區號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.Models.ECPay_TempTradeResult.ScheduledDeliveryDate">
+            <summary>
+            預定送達日期
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.Models.ECPay_TempTradeResult.ScheduledDeliveryTime">
+            <summary>
+            預定送達時段
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.Models.ECPay_TempTradeResult.ReceiverStoreID">
+            <summary>
+            收件人門市代號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.Models.ECPay_TempTradeResult.ReceiverStoreName">
+            <summary>
+            收件門市名稱
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.Models.ECPay_TempTradeResult.MerchantTradeNo">
+            <summary>
+            廠商交易編號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.Models.ECPay_TempTradeResult.LogisticsID">
+            <summary>
+            綠界訂單編號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.Models.ECPay_TempTradeResult.RtnMerchantTradeNo">
+            <summary>
+            綠界科技逆物流交易編號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.Models.ECPay_TempTradeResult.RtnOrderNo">
+            <summary>
+            退貨編號
+            </summary>
+        </member>
         <member name="T:WebApiApplication.Models.User">
             <summary>
             使用者資料
@@ -728,6 +1105,1016 @@
         <member name="P:WebApiApplication.Models.User.RefreshToken">
             <summary>
             刷新令牌
+            </summary>
+        </member>
+        <member name="T:WebApiApplication.ViewModels.ECPayApiRequestData">
+            <summary>
+            綠界科技物流服務API傳入參數
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData.PlatformID">
+            <summary>
+            特約合作平台商代號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData.MerchantID">
+            <summary>
+            特店編號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData.RqHeader">
+            <summary>
+            傳入資料
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData.Data">
+            <summary>
+            加密資料
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData.RqHeaderData.Timestamp">
+            <summary>
+            傳入時間
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData.RqHeaderData.Revision">
+            <summary>
+            串接版號 
+            </summary>
+        </member>
+        <member name="T:WebApiApplication.ViewModels.ECPayApiRequestData_ServerPost">
+            <summary>
+            綠界科技物流服務API傳入參數(ServerPost)
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_ServerPost.TransCode">
+            <summary>
+            回傳代碼
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_ServerPost.TransMsg">
+            <summary>
+            回傳訊息
+            </summary>
+        </member>
+        <member name="T:WebApiApplication.ViewModels.ECPayApiRequestData_BaseRequestData">
+            <summary>
+            綠界科技物流服務API傳入參數-基礎資料
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_BaseRequestData.MerchantID">
+            <summary>
+            特店編號
+            </summary>
+        </member>
+        <member name="T:WebApiApplication.ViewModels.ECPayApiRequestData_CreateTestData">
+            <summary>
+            綠界科技物流服務API傳入參數-一段標測試資料產生(B2C)
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_CreateTestData.PlatformID">
+            <summary>
+            特約合作平台商代號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_CreateTestData.LogisticsSubType">
+            <summary>
+            物流子類型[FAMI：全家物流(B2C)/UNIMART：7-ELEVEN 超商物流(B2C)/UNIMARTFREEZE：7-ELEVEN 冷凍店取(B2C)]
+            </summary>
+        </member>
+        <member name="T:WebApiApplication.ViewModels.ECPayApiRequestData_PrintTradeDocument">
+            <summary>
+            綠界科技物流服務API傳入參數-列印託運單
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_PrintTradeDocument.LogisticsID">
+            <summary>
+            綠界訂單編號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_PrintTradeDocument.LogisticsSubType">
+            <summary>
+            物流子類型
+            </summary>
+        </member>
+        <member name="T:WebApiApplication.ViewModels.ECPayApiRequestData_RedirectToLogisticsSelection">
+            <summary>
+            綠界科技物流服務API傳入參數-開啟物流選擇頁
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_RedirectToLogisticsSelection.TempLogisticsID">
+            <summary>
+            暫存物流訂單編號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_RedirectToLogisticsSelection.GoodsAmount">
+            <summary>
+            商品金額(商品金額範圍為 1~20,000 元。)
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_RedirectToLogisticsSelection.IsCollection">
+            <summary>
+            是否代收貨款[N：不代收貨款，為預設值。/Y：代收貨款]
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_RedirectToLogisticsSelection.GoodsName">
+            <summary>
+            商品名稱
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_RedirectToLogisticsSelection.SenderName">
+            <summary>
+            寄件人姓名
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_RedirectToLogisticsSelection.SenderZipCode">
+            <summary>
+            寄件人郵遞區號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_RedirectToLogisticsSelection.SenderAddress">
+            <summary>
+            寄件人地址
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_RedirectToLogisticsSelection.Remark">
+            <summary>
+            備註
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_RedirectToLogisticsSelection.ServerReplyURL">
+            <summary>
+            Server端回覆網址(無指定網址時使用預設網址)
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_RedirectToLogisticsSelection.ClientReplyURL">
+            <summary>
+            Client端回覆網址(無指定網址時使用預設網址)
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_RedirectToLogisticsSelection.Temperature">
+            <summary>
+            溫層[0001:常溫(預設值)/0002:冷藏/0003:冷凍]
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_RedirectToLogisticsSelection.Specification">
+            <summary>
+            規格[0001: 60cm(預設值)/0002: 90cm/0003: 120cm/0004: 150cm]
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_RedirectToLogisticsSelection.ScheduledPickupTime">
+            <summary>
+            預定取件時段[1: 9~12/2: 12~17/4: 不限時(固定填 4 不限時)]
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_RedirectToLogisticsSelection.PackageCount">
+            <summary>
+            包裹件數
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_RedirectToLogisticsSelection.ReceiverAddress">
+            <summary>
+            收件人地址
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_RedirectToLogisticsSelection.ReceiverCellPhone">
+            <summary>
+            收件人手機
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_RedirectToLogisticsSelection.ReceiverPhone">
+            <summary>
+            收件人電話
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_RedirectToLogisticsSelection.ReceiverName">
+            <summary>
+            收件人姓名
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_RedirectToLogisticsSelection.EnableSelectDeliveryTime">
+            <summary>
+            是否允許選擇送達時間[N：不允許(預設值)。/Y：允許。]
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_RedirectToLogisticsSelection.EshopMemberID">
+            <summary>
+            廠商平台的會員ID
+            </summary>
+        </member>
+        <member name="T:WebApiApplication.ViewModels.ECPayApiRequestData_CreateTempTradeResult">
+            <summary>
+            綠界科技物流服務API傳入參數-建立暫存物流訂單結果通知
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_CreateTempTradeResult.ResultData">
+            <summary>
+            回傳參數
+            </summary>
+        </member>
+        <member name="T:WebApiApplication.ViewModels.ECPayApiRequestData_UpdateTempTrade">
+            <summary>
+            綠界科技物流服務API傳入參數-更新暫存物流訂單
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_UpdateTempTrade.TempLogisticsID">
+            <summary>
+            暫存物流訂單編號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_UpdateTempTrade.GoodsAmount">
+            <summary>
+            商品金額(商品金額範圍為 1~20,000 元。)
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_UpdateTempTrade.GoodsName">
+            <summary>
+            商品名稱
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_UpdateTempTrade.SenderName">
+            <summary>
+            寄件人姓名
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_UpdateTempTrade.SenderZipCode">
+            <summary>
+            寄件人郵遞區號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_UpdateTempTrade.SenderAddress">
+            <summary>
+            寄件人地址
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_UpdateTempTrade.Remark">
+            <summary>
+            備註
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_UpdateTempTrade.ReturnStoreID">
+            <summary>
+            退貨門市代號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_UpdateTempTrade.ServerReplyURL">
+            <summary>
+            Server端回覆網址
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_UpdateTempTrade.Specification">
+            <summary>
+            規格[0001: 60cm(預設值)/0002: 90cm/0003: 120cm/0004: 150cm]
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_UpdateTempTrade.PackageCount">
+            <summary>
+            包裹件數
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_UpdateTempTrade.ReceiverAddress">
+            <summary>
+            收件人地址
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_UpdateTempTrade.ReceiverZipCode">
+            <summary>
+            收件人郵遞區號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_UpdateTempTrade.ReceiverCellPhone">
+            <summary>
+            收件人手機
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_UpdateTempTrade.ReceiverPhone">
+            <summary>
+            收件人電話
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_UpdateTempTrade.ReceiverName">
+            <summary>
+            收件人姓名
+            </summary>
+        </member>
+        <member name="T:WebApiApplication.ViewModels.ECPayApiRequestData_CreateByTempTrade">
+            <summary>
+            綠界科技物流服務API傳入參數-建立正式物流訂單
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_CreateByTempTrade.TempLogisticsID">
+            <summary>
+            暫存物流訂單編號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_CreateByTempTrade.MerchantTradeNo">
+            <summary>
+            廠商交易編號
+            </summary>
+        </member>
+        <member name="T:WebApiApplication.ViewModels.ECPayApiRequestData_ReturnB2C">
+            <summary>
+            綠界科技物流服務API傳入參數-逆物流訂單(B2C)
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_ReturnB2C.LogisticsID">
+            <summary>
+            綠界訂單編號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_ReturnB2C.ServerReplyURL">
+            <summary>
+            Server端回覆網址(無指定網址時使用預設網址)
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_ReturnB2C.GoodsName">
+            <summary>
+            商品名稱
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_ReturnB2C.GoodsAmount">
+            <summary>
+            商品金額(商品金額範圍為 1~20,000 元。)
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_ReturnB2C.ServiceType">
+            <summary>
+            服務型態代碼
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_ReturnB2C.SenderName">
+            <summary>
+            退貨人姓名
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_ReturnB2C.SenderPhone">
+            <summary>
+            退貨人手機
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_ReturnB2C.Remark">
+            <summary>
+            備註
+            </summary>
+        </member>
+        <member name="T:WebApiApplication.ViewModels.ECPayApiRequestData_ReturnHome">
+            <summary>
+            綠界科技物流服務API傳入參數-逆物流訂單(宅配)
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_ReturnHome.LogisticsID">
+            <summary>
+            綠界訂單編號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_ReturnHome.LogisticsSubType">
+            <summary>
+            物流子類型
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_ReturnHome.ServerReplyURL">
+            <summary>
+            Server端回覆網址(無指定網址時使用預設網址)
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_ReturnHome.SenderName">
+            <summary>
+            退貨人姓名
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_ReturnHome.SenderPhone">
+            <summary>
+            退貨人電話
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_ReturnHome.SenderCellPhone">
+            <summary>
+            退貨人手機
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_ReturnHome.SenderZipCode">
+            <summary>
+            退貨人郵遞區號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_ReturnHome.SenderAddress">
+            <summary>
+            退貨人地址
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_ReturnHome.ReceiverName">
+            <summary>
+            收件人姓名
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_ReturnHome.ReceiverPhone">
+            <summary>
+            收件人電話
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_ReturnHome.ReceiverCellPhone">
+            <summary>
+            收件人手機
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_ReturnHome.ReceiverZipCode">
+            <summary>
+            收件人郵遞區號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_ReturnHome.ReceiverAddress">
+            <summary>
+            收件人地址
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_ReturnHome.ReceiverEmail">
+            <summary>
+            收件人Email
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_ReturnHome.GoodsAmount">
+            <summary>
+            商品金額
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_ReturnHome.GoodsName">
+            <summary>
+            物品名稱
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_ReturnHome.Temperature">
+            <summary>
+            溫層[0001:常溫(預設值)/0002:冷藏/0003:冷凍]
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_ReturnHome.Distance">
+            <summary>
+            距離[00:同縣市(預設值)/01:外縣市/02:離島]
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_ReturnHome.Specification">
+            <summary>
+            規格[0001: 60cm(預設值)/0002: 90cm/0003: 120cm/0004: 150cm]
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_ReturnHome.ScheduledDeliveryTime">
+            <summary>
+            預定送達時段[1:13 前/2:14~18/4:不限時]
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_ReturnHome.ScheduledDeliveryDate">
+            <summary>
+            指定送達日
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_ReturnHome.Remark">
+            <summary>
+            備註
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_ReturnHome.PlatformID">
+            <summary>
+            特約合作平台商代號
+            </summary>
+        </member>
+        <member name="T:WebApiApplication.ViewModels.ECPayApiRequestData_QueryLogisticsTradeInfo">
+            <summary>
+            綠界科技物流服務API傳入參數-查詢訂單
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_QueryLogisticsTradeInfo.LogisticsID">
+            <summary>
+            綠界訂單編號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_QueryLogisticsTradeInfo.MerchantTradeNo">
+            <summary>
+            廠商交易編號
+            </summary>
+        </member>
+        <member name="T:WebApiApplication.ViewModels.ECPayApiRequestData_UpdateShipmentInfo">
+            <summary>
+            綠界科技物流服務API傳入參數-(B2C)物流訂單異動
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_UpdateShipmentInfo.LogisticsID">
+            <summary>
+            綠界訂單編號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_UpdateShipmentInfo.ShipmentDate">
+            <summary>
+            物流訂單出貨日期
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_UpdateShipmentInfo.ReceiverStoreID">
+            <summary>
+            物流訂單取貨門市
+            </summary>
+        </member>
+        <member name="T:WebApiApplication.ViewModels.ECPayApiRequestData_UpdateStoreInfo">
+            <summary>
+            綠界科技物流服務API傳入參數-(C2C)物流訂單異動
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_UpdateStoreInfo.LogisticsID">
+            <summary>
+            綠界訂單編號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_UpdateStoreInfo.CVSPaymentNo">
+            <summary>
+            寄貨編號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_UpdateStoreInfo.CVSValidationNo">
+            <summary>
+            驗證碼
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_UpdateStoreInfo.StoreType">
+            <summary>
+            門市類型[01：取件門市更新/02：退件門市更新]
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_UpdateStoreInfo.ReceiverStoreID">
+            <summary>
+            物流訂單取貨門市
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_UpdateStoreInfo.ReturnStoreID">
+            <summary>
+            物流訂單退貨門市
+            </summary>
+        </member>
+        <member name="T:WebApiApplication.ViewModels.ECPayApiRequestData_CancelC2COrder">
+            <summary>
+            綠界科技物流服務API傳入參數-取消訂單(7-EVEVEN超商C2C)
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_CancelC2COrder.LogisticsID">
+            <summary>
+            綠界訂單編號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_CancelC2COrder.CVSPaymentNo">
+            <summary>
+            寄貨編號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiRequestData_CancelC2COrder.CVSValidationNo">
+            <summary>
+            驗證碼
+            </summary>
+        </member>
+        <member name="T:WebApiApplication.ViewModels.ECPayApiResponseData">
+            <summary>
+            綠界科技物流服務API回傳參數
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData.PlatformID">
+            <summary>
+            特約合作平台商代號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData.MerchantID">
+            <summary>
+            特店編號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData.RpHeader">
+            <summary>
+            回傳資料
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData.TransCode">
+            <summary>
+            回傳代碼
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData.TransMsg">
+            <summary>
+            回傳訊息
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData.Data">
+            <summary>
+            加密資料
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData.RpHeaderData.Timestamp">
+            <summary>
+            回傳時間 
+            </summary>
+        </member>
+        <member name="T:WebApiApplication.ViewModels.ECPayApiResponseData_BaseResponseData">
+            <summary>
+            綠界科技物流服務API回傳參數-基礎資料
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_BaseResponseData.RtnCode">
+            <summary>
+            回應代碼
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_BaseResponseData.RtnMsg">
+            <summary>
+            回應訊息
+            </summary>
+        </member>
+        <member name="T:WebApiApplication.ViewModels.ECPayApiResponseData_TempPage">
+            <summary>
+            綠界科技物流服務API回傳參數-暫存頁面
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_TempPage.TempPageUrl">
+            <summary>
+            臨時頁面網址
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_TempPage.HtmlContent">
+            <summary>
+            Html內容
+            </summary>
+        </member>
+        <member name="T:WebApiApplication.ViewModels.ECPayApiResponseData_CreateTestData">
+            <summary>
+            綠界科技物流服務API回傳參數-一段標測試資料產生(B2C)
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_CreateTestData.MerchantID">
+            <summary>
+            特店編號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_CreateTestData.MerchantTradeNo">
+            <summary>
+            廠商訂單編號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_CreateTestData.LogisticsID">
+            <summary>
+            綠界訂單編號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_CreateTestData.LogisticsStatus">
+            <summary>
+            貨態代碼
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_CreateTestData.LogisticsStatusName">
+            <summary>
+            貨態代碼訊息
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_CreateTestData.LogisticsType">
+            <summary>
+            物流類型
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_CreateTestData.LogisticsSubType">
+            <summary>
+            物流子類型
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_CreateTestData.GoodsAmount">
+            <summary>
+            商品金額
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_CreateTestData.UpdateStatusDate">
+            <summary>
+            物流狀態更新時間
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_CreateTestData.ReceiverName">
+            <summary>
+            收件人姓名
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_CreateTestData.ReciverPhone">
+            <summary>
+            收件人電話
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_CreateTestData.ReceiverCellPhone">
+            <summary>
+            收件人手機
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_CreateTestData.ReceiverEmail">
+            <summary>
+            收件人Email
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_CreateTestData.ReceiverAddress">
+            <summary>
+            收件人地址
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_CreateTestData.BookingNote">
+            <summary>
+            托運單號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_CreateTestData.CVSPaymentNo">
+            <summary>
+            寄貨編號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_CreateTestData.CVSValidationNo">
+            <summary>
+            驗證碼
+            </summary>
+        </member>
+        <member name="T:WebApiApplication.ViewModels.ECPayApiResponseData_CreateTempTradeResult">
+            <summary>
+            綠界科技物流服務API回傳參數-建立暫存物流訂單結果通知
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_CreateTempTradeResult.TempLogisticsID">
+            <summary>
+            暫存物流訂單編號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_CreateTempTradeResult.LogisticsType">
+            <summary>
+            物流類型
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_CreateTempTradeResult.LogisticsSubType">
+            <summary>
+            物流子類型
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_CreateTempTradeResult.ReceiverName">
+            <summary>
+            收件人姓名
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_CreateTempTradeResult.ReceiverPhone">
+            <summary>
+            收件人電話
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_CreateTempTradeResult.ReceiverCellphone">
+            <summary>
+            收件人手機
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_CreateTempTradeResult.ReceiverAddress">
+            <summary>
+            收件人地址
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_CreateTempTradeResult.ReceiverZipCode">
+            <summary>
+            收件人郵遞區號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_CreateTempTradeResult.ScheduledDeliveryDate">
+            <summary>
+            預定送達日期
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_CreateTempTradeResult.ScheduledDeliveryTime">
+            <summary>
+            預定送達時段
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_CreateTempTradeResult.ReceiverStoreID">
+            <summary>
+            收件人門市代號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_CreateTempTradeResult.ReceiverStoreName">
+            <summary>
+            收件門市名稱
+            </summary>
+        </member>
+        <member name="T:WebApiApplication.ViewModels.ECPayApiResponseData_CreateByTempTrade">
+            <summary>
+            綠界科技物流服務API回傳參數-建立正式物流訂單
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_CreateByTempTrade.LogisticsID">
+            <summary>
+            綠界訂單編號
+            </summary>
+        </member>
+        <member name="T:WebApiApplication.ViewModels.ECPayApiResponseData_ReturnB2C">
+            <summary>
+            綠界科技物流服務API回傳參數-逆物流訂單(B2C)
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_ReturnB2C.RtnMerchantTradeNo">
+            <summary>
+            綠界科技逆物流交易編號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_ReturnB2C.RtnOrderNo">
+            <summary>
+            退貨編號
+            </summary>
+        </member>
+        <member name="T:WebApiApplication.ViewModels.ECPayApiResponseData_QueryLogisticsTradeInfo">
+            <summary>
+            綠界科技物流服務API回傳參數-查詢訂單
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_QueryLogisticsTradeInfo.MerchantID">
+            <summary>
+            廠商編號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_QueryLogisticsTradeInfo.MerchantTradeNo">
+            <summary>
+            廠商交易編號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_QueryLogisticsTradeInfo.LogisticsID">
+            <summary>
+            綠界訂單編號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_QueryLogisticsTradeInfo.GoodsAmount">
+            <summary>
+            商品金額
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_QueryLogisticsTradeInfo.LogisticsType">
+            <summary>
+            會員選擇的物流方式
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_QueryLogisticsTradeInfo.HandlingCharge">
+            <summary>
+            物流費用
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_QueryLogisticsTradeInfo.CollectionChargeFee">
+            <summary>
+            代收金額手續費
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_QueryLogisticsTradeInfo.TradeDate">
+            <summary>
+            訂單成立時間
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_QueryLogisticsTradeInfo.LogisticsStatus">
+            <summary>
+            物流狀態
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_QueryLogisticsTradeInfo.GoodsName">
+            <summary>
+            商品名稱
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_QueryLogisticsTradeInfo.ShipmentNo">
+            <summary>
+            配送編號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_QueryLogisticsTradeInfo.BookingNote">
+            <summary>
+            托運單號
+            </summary>
+        </member>
+        <member name="T:WebApiApplication.ViewModels.ECPayApiResponseData_ForwardLogistics">
+            <summary>
+            綠界科技物流服務API回傳參數-物流狀態(貨態)通知
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_ForwardLogistics.MerchantID">
+            <summary>
+            廠商編號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_ForwardLogistics.LogisticsType">
+            <summary>
+            物流類型
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_ForwardLogistics.LogisticsSubType">
+            <summary>
+            物流子類型
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_ForwardLogistics.MerchantTradeNo">
+            <summary>
+            廠商交易編號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_ForwardLogistics.LogisticsID">
+            <summary>
+            綠界訂單編號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_ForwardLogistics.LogisticsStatus">
+            <summary>
+            貨態代碼
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_ForwardLogistics.LogisticsStatusName">
+            <summary>
+            貨態代碼訊息
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_ForwardLogistics.GoodsAmount">
+            <summary>
+            商品金額
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_ForwardLogistics.UpdateStatusDate">
+            <summary>
+            物流狀態更新時間
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_ForwardLogistics.ReceiverName">
+            <summary>
+            收件人姓名
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_ForwardLogistics.ReceiverPhone">
+            <summary>
+            收件人電話
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_ForwardLogistics.ReceiverCellphone">
+            <summary>
+            收件人手機
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_ForwardLogistics.ReceiverEmail">
+            <summary>
+            收件人Email
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_ForwardLogistics.ReceiverAddress">
+            <summary>
+            收件人地址
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_ForwardLogistics.CVSPaymentNo">
+            <summary>
+            寄貨編號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_ForwardLogistics.CVSValidationNo">
+            <summary>
+            驗證碼
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_ForwardLogistics.BookingNote">
+            <summary>
+            托運單號
+            </summary>
+        </member>
+        <member name="T:WebApiApplication.ViewModels.ECPayApiResponseData_ReverseLogistics">
+            <summary>
+            綠界科技物流服務API回傳參數-物流狀態(逆物流)通知
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_ReverseLogistics.LogisticsStatus">
+            <summary>
+            貨態代碼
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_ReverseLogistics.LogisticsStatusName">
+            <summary>
+            貨態代碼訊息
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_ReverseLogistics.MerchantID">
+            <summary>
+            廠商編號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_ReverseLogistics.RtnMerchantTradeNo">
+            <summary>
+            綠界科技逆物流交易編號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_ReverseLogistics.LogisticsID">
+            <summary>
+            綠界訂單編號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_ReverseLogistics.GoodsAmount">
+            <summary>
+            商品金額
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_ReverseLogistics.UpdateStatusDate">
+            <summary>
+            物流狀態更新時間
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.ECPayApiResponseData_ReverseLogistics.BookingNote">
+            <summary>
+            托運單號
             </summary>
         </member>
         <member name="T:WebApiApplication.ViewModels.UserRequestData">

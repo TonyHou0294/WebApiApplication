@@ -13,7 +13,7 @@ namespace WebApiApplication.Controllers
     /// ECPay會員資料操作(REST + Bearer Token)
     /// </summary>
     [RoutePrefix("api/ECPay")]
-    [BearerTokenAuthorizationFilterAttribute]
+    //[BearerTokenAuthorizationFilterAttribute]
     public class ECPayController : BaseApiController
     {
         /// <summary>
@@ -125,6 +125,10 @@ namespace WebApiApplication.Controllers
             if (eCPay == null)
             {
                 return NotFound();
+            }
+            else if(eCPay.IsStage)
+            {
+                return BadRequest("禁止刪除測試會員");
             }
 
             db.ECPays.Remove(eCPay);

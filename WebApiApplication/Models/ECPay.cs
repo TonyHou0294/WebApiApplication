@@ -39,5 +39,13 @@ namespace WebApiApplication.Models
         [Required]
         [StringLength(50)]
         public string HashIV { get; set; }
+
+        /// <summary>
+        /// 是否測試
+        /// </summary>
+        [DisplayName("是否測試")]
+        [Required]
+        public bool IsStage { get; set; }
+
     }
 }

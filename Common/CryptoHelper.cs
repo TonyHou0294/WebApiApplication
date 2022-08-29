@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Security.Cryptography;
 using System.Text;
+using System.Web;
 
 namespace Common
 {
@@ -59,7 +60,7 @@ namespace Common
             rijndaelCipher.Mode = mode;
             rijndaelCipher.Padding = padding;
 
-            if(size.HasValue)
+            if (size.HasValue)
             {
                 rijndaelCipher.KeySize = size.Value;
                 rijndaelCipher.BlockSize = size.Value;
@@ -110,7 +111,7 @@ namespace Common
             rijndaelCipher.Mode = mode;
             rijndaelCipher.Padding = padding;
 
-            if(size.HasValue)
+            if (size.HasValue)
             {
                 rijndaelCipher.KeySize = size.Value;
                 rijndaelCipher.BlockSize = size.Value;
@@ -199,5 +200,52 @@ namespace Common
             return bytes;
         }
         #endregion
+
+        /// <summary>
+        /// 對字元進行UrlEncode編碼
+        /// string轉Encoding格式
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="encod">編碼格式</param>
+        /// <param name="cap">是否輸出大寫字母</param>
+        /// <returns></returns>
+        public static string UrlEncode(string text, Encoding encod, bool cap = true)
+        {
+            if (cap)
+            {
+                StringBuilder builder = new StringBuilder();
+                foreach (char c in text)
+                {
+                    if (HttpUtility.UrlEncode(c.ToString(), encod).Length > 1)
+                    {
+                        builder.Append(HttpUtility.UrlEncode(c.ToString(), encod).ToUpper());
+                    }
+                    else
+                    {
+                        builder.Append(c);
+                    }
+                }
+                return builder.ToString();
+            }
+            else
+            {
+                string encodString = System.Web.HttpUtility.UrlEncode(text, encod);
+                return encodString;
+            }
+        }
+
+        /// <summary>
+        /// 對字元進行UrlDecode解碼
+        /// Encoding轉string格式
+        /// </summary>
+        /// <param name="encodString"></param>
+        /// <param name="encod">編碼格式</param>
+        /// <returns></returns>
+        public static string UrlDecode(string encodString, Encoding encod)
+        {
+            string text = HttpUtility.UrlDecode(encodString, encod);
+            return text;
+        }
+
     }
 }

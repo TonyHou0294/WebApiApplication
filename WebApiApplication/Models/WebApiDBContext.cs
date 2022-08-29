@@ -14,6 +14,8 @@ namespace WebApiApplication.Models
         }
 
         public DbSet<ECPay> ECPays { get; set; }
+        public DbSet<ECPay_LogisticsStatus> ECPay_LogisticsStatus { get; set; }
+        public DbSet<ECPay_TempTradeResult> ECPay_TempTradeResults { get; set; }
         public DbSet<User> Users { get; set; }
     }
 }
