@@ -740,19 +740,19 @@
             <param name="id">使用者ID</param>
             <returns>使用者資料</returns>
         </member>
-        <member name="M:WebApiApplication.Controllers.UserController.Post(WebApiApplication.ViewModels.UserRequestData)">
+        <member name="M:WebApiApplication.Controllers.UserController.Post(WebApiApplication.ViewModels.Request.UserRequest)">
             <summary>
             新增一筆使用者資料
             </summary>
-            <param name="data">使用者請求資料</param>
+            <param name="request">使用者請求資料</param>
             <returns>埦行結果</returns>
         </member>
-        <member name="M:WebApiApplication.Controllers.UserController.Put(System.Int64,WebApiApplication.ViewModels.UserRequestData)">
+        <member name="M:WebApiApplication.Controllers.UserController.Put(System.Int64,WebApiApplication.ViewModels.Request.UserRequest)">
             <summary>
             修改特定使用者資料
             </summary>
             <param name="id">使用者ID</param>
-            <param name="data">使用者請求資料</param>
+            <param name="request">使用者請求資料</param>
             <returns>埦行結果</returns>
         </member>
         <member name="M:WebApiApplication.Controllers.UserController.Delete(System.Int64)">
@@ -761,6 +761,90 @@
             </summary>
             <param name="id">使用者ID</param>
             <returns>埦行結果</returns>
+        </member>
+        <member name="M:WebApiApplication.DataAccess.Interfaces.IRepository`1.Insert(`0)">
+            <summary>
+            新增資料
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiApplication.DataAccess.Interfaces.IRepository`1.InsertRange(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            新增多筆資料
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiApplication.DataAccess.Interfaces.IRepository`1.Update(`0)">
+            <summary>
+            修改資料
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiApplication.DataAccess.Interfaces.IRepository`1.Delete(`0)">
+            <summary>
+            刪除資料
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiApplication.DataAccess.Interfaces.IRepository`1.DeleteRange(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            刪除多筆資料
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiApplication.DataAccess.Interfaces.IRepository`1.SearchFor(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            指定條件查詢資料
+            </summary>
+            <returns>IQueryable查詢結果</returns>
+        </member>
+        <member name="M:WebApiApplication.DataAccess.Interfaces.IRepository`1.GetAll">
+            <summary>
+            查詢全部資料
+            </summary>
+            <returns>IQueryable查詢結果</returns>
+        </member>
+        <member name="M:WebApiApplication.DataAccess.Interfaces.IRepository`1.GetAvailable">
+            <summary>
+            排除已刪除（假性刪除）的資料
+            </summary>
+            <returns>IQueryable查詢結果</returns>
+        </member>
+        <member name="M:WebApiApplication.DataAccess.Interfaces.IRepository`1.Get(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            指定條件查詢資料
+            </summary>
+            <returns>符合查詢條件第一筆資料結果</returns>
+        </member>
+        <member name="M:WebApiApplication.DataAccess.Interfaces.IRepository`1.Find(System.Object[])">
+            <summary>
+            主鍵查詢資料
+            </summary>
+            <returns>符合查詢條件第一筆資料結果</returns>
+        </member>
+        <member name="M:WebApiApplication.DataAccess.Interfaces.IRepository`1.Find(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            指定條件查詢資料
+            </summary>
+            <returns>符合查詢條件唯一的一筆資料結果</returns>
+        </member>
+        <member name="M:WebApiApplication.DataAccess.Interfaces.IRepository`1.DeleteByKey(System.Object[])">
+            <summary>
+            主鍵刪除資料
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiApplication.DataAccess.Interfaces.IRepository`1.DeleteItemsByKeys(System.Object[])">
+            <summary>
+            主鍵刪除多筆資料
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiApplication.DataAccess.Interfaces.IRepository`1.SaveChanges">
+            <summary>
+            儲存資料庫
+            </summary>
+            <returns>異動筆數</returns>
         </member>
         <member name="T:WebApiApplication.Helpers.AuthorizationHelper">
             <summary>
@@ -2167,6 +2251,26 @@
             刷新令牌
             </summary>
         </member>
+        <member name="T:WebApiApplication.ViewModels.Request.UserRequest">
+            <summary>
+            使用者請求資料
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.Request.UserRequest.UserId">
+            <summary>
+            使用者編號
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.Request.UserRequest.UserName">
+            <summary>
+            使用者名稱
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.Request.UserRequest.Password">
+            <summary>
+            密碼
+            </summary>
+        </member>
         <member name="T:WebApiApplication.ViewModels.TokenResponseData">
             <summary>
             令牌響應資料
@@ -2180,6 +2284,31 @@
         <member name="P:WebApiApplication.ViewModels.TokenResponseData.RefreshToken">
             <summary>
             刷新令牌
+            </summary>
+        </member>
+        <member name="T:WebApiApplication.ViewModels.Response.ApiResponse`1">
+            <summary>
+            API呼叫結果
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.Response.ApiResponse`1.StatusCode">
+            <summary>
+            Http狀態碼
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.Response.ApiResponse`1.Message">
+            <summary>
+            訊息
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.Response.ApiResponse`1.Data">
+            <summary>
+            資料
+            </summary>
+        </member>
+        <member name="P:WebApiApplication.ViewModels.Response.ApiResponse`1.TotalPage">
+            <summary>
+            總頁數
             </summary>
         </member>
     </members>
